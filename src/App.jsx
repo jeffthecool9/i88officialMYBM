@@ -9,11 +9,6 @@ export default function App() {
       <Hero />
       <EventCarousel />
       <HowToJoin />
-      {/* 18+ notice */}
-      <p className="text-center font-body text-ice/20 text-xs px-6 py-6 leading-relaxed pb-24">
-        18+ sahaja. Judi bertanggungjawab. i88 menyokong perjudian bertanggungjawab.
-        Talian MY: 1-800-88-3151
-      </p>
       <StickyCTA />
     </div>
   )
