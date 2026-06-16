@@ -64,15 +64,35 @@ export default function Hero() {
             35,306 pemain telah menyertai — main Golden Boot Showdown hari ini.
           </motion.p>
 
-          <motion.div variants={rise} className="flex md:justify-start justify-center mb-4">
-            <PremiumButton
-              size="lg"
-              onClick={() => { trackEvent('hero_cta_click', { section: 'hero' }); window.open('https://www.palacehub8.com/uZieoLoC', '_blank') }}
-              className="w-full sm:w-auto"
-            >
-              Sertai Sekarang
-            </PremiumButton>
-          </motion.div>
+         <motion.div variants={rise} className="flex md:justify-start justify-center mb-4">
+  <PremiumButton
+    size="lg"
+    onClick={() => {
+      // Meta Pixel Event
+      if (window.fbq) {
+        window.fbq('track', 'Lead', {
+          content_name: 'Hero CTA',
+          section: 'hero',
+          button_text: 'Sertai Sekarang'
+        });
+
+        window.fbq('trackCustom', 'HeroCTAClick', {
+          section: 'hero',
+          button_text: 'Sertai Sekarang'
+        });
+      }
+
+      // Your own tracking, keep it if used elsewhere
+      trackEvent('hero_cta_click', { section: 'hero' });
+
+      // Open destination
+      window.open('https://www.palacehub8.com/uZieoLoC', '_blank');
+    }}
+    className="w-full sm:w-auto"
+  >
+    Sertai Sekarang
+  </PremiumButton>
+</motion.div>
 
           <motion.div
             variants={rise}
